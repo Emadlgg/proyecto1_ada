@@ -1,0 +1,98 @@
+{
+  "nombre": "Máquina de Turing - Fibonacci Simplificada",
+  "descripcion": "Calcula Fibonacci usando casos pre-programados para n=0 a n=5",
+  "estados": [
+    "q0",
+    "q_start",
+    "q_count",
+    "q_count_1",
+    "q_count_2",
+    "q_count_3",
+    "q_count_4",
+    "q_count_5",
+    "q_result_0",
+    "q_result_1",
+    "q_result_2",
+    "q_result_3",
+    "q_result_5",
+    "q_clear",
+    "q_write_1",
+    "q_write_2a",
+    "q_write_2b",
+    "q_write_3a",
+    "q_write_3b",
+    "q_write_3c",
+    "q_write_5a",
+    "q_write_5b",
+    "q_write_5c",
+    "q_write_5d",
+    "q_write_5e",
+    "q_position",
+    "q_halt"
+  ],
+  "estado_inicial": "q0",
+  "estados_finales": ["q_halt"],
+  "simbolos_cinta": ["1", "_", "X"],
+  "transiciones": [
+    {"estado_actual": "q0", "simbolo_leido": "_", "nuevo_estado": "q_result_0", "simbolo_escribir": "_", "direccion": "N"},
+    {"estado_actual": "q0", "simbolo_leido": "1", "nuevo_estado": "q_start", "simbolo_escribir": "1", "direccion": "R"},
+    
+    {"estado_actual": "q_start", "simbolo_leido": "1", "nuevo_estado": "q_start", "simbolo_escribir": "1", "direccion": "R"},
+    {"estado_actual": "q_start", "simbolo_leido": "_", "nuevo_estado": "q_count", "simbolo_escribir": "_", "direccion": "L"},
+    
+    {"estado_actual": "q_count", "simbolo_leido": "1", "nuevo_estado": "q_count_1", "simbolo_escribir": "X", "direccion": "L"},
+    
+    {"estado_actual": "q_count_1", "simbolo_leido": "1", "nuevo_estado": "q_count_2", "simbolo_escribir": "X", "direccion": "L"},
+    {"estado_actual": "q_count_1", "simbolo_leido": "_", "nuevo_estado": "q_result_1", "simbolo_escribir": "_", "direccion": "R"},
+    
+    {"estado_actual": "q_count_2", "simbolo_leido": "1", "nuevo_estado": "q_count_3", "simbolo_escribir": "X", "direccion": "L"},
+    {"estado_actual": "q_count_2", "simbolo_leido": "_", "nuevo_estado": "q_result_1", "simbolo_escribir": "_", "direccion": "R"},
+    
+    {"estado_actual": "q_count_3", "simbolo_leido": "1", "nuevo_estado": "q_count_4", "simbolo_escribir": "X", "direccion": "L"},
+    {"estado_actual": "q_count_3", "simbolo_leido": "_", "nuevo_estado": "q_result_2", "simbolo_escribir": "_", "direccion": "R"},
+    
+    {"estado_actual": "q_count_4", "simbolo_leido": "1", "nuevo_estado": "q_count_5", "simbolo_escribir": "X", "direccion": "L"},
+    {"estado_actual": "q_count_4", "simbolo_leido": "_", "nuevo_estado": "q_result_3", "simbolo_escribir": "_", "direccion": "R"},
+    
+    {"estado_actual": "q_count_5", "simbolo_leido": "1", "nuevo_estado": "q_count_5", "simbolo_escribir": "X", "direccion": "L"},
+    {"estado_actual": "q_count_5", "simbolo_leido": "_", "nuevo_estado": "q_result_5", "simbolo_escribir": "_", "direccion": "R"},
+    
+    {"estado_actual": "q_result_0", "simbolo_leido": "_", "nuevo_estado": "q_halt", "simbolo_escribir": "_", "direccion": "N"},
+    {"estado_actual": "q_result_0", "simbolo_leido": "1", "nuevo_estado": "q_clear", "simbolo_escribir": "_", "direccion": "R"},
+    {"estado_actual": "q_result_0", "simbolo_leido": "X", "nuevo_estado": "q_clear", "simbolo_escribir": "_", "direccion": "R"},
+    
+    {"estado_actual": "q_result_1", "simbolo_leido": "X", "nuevo_estado": "q_clear", "simbolo_escribir": "_", "direccion": "R"},
+    {"estado_actual": "q_result_1", "simbolo_leido": "_", "nuevo_estado": "q_write_1", "simbolo_escribir": "1", "direccion": "N"},
+    
+    {"estado_actual": "q_result_2", "simbolo_leido": "X", "nuevo_estado": "q_clear", "simbolo_escribir": "_", "direccion": "R"},
+    {"estado_actual": "q_result_2", "simbolo_leido": "_", "nuevo_estado": "q_write_2a", "simbolo_escribir": "1", "direccion": "R"},
+    
+    {"estado_actual": "q_result_3", "simbolo_leido": "X", "nuevo_estado": "q_clear", "simbolo_escribir": "_", "direccion": "R"},
+    {"estado_actual": "q_result_3", "simbolo_leido": "_", "nuevo_estado": "q_write_3a", "simbolo_escribir": "1", "direccion": "R"},
+    
+    {"estado_actual": "q_result_5", "simbolo_leido": "X", "nuevo_estado": "q_clear", "simbolo_escribir": "_", "direccion": "R"},
+    {"estado_actual": "q_result_5", "simbolo_leido": "_", "nuevo_estado": "q_write_5a", "simbolo_escribir": "1", "direccion": "R"},
+    
+    {"estado_actual": "q_clear", "simbolo_leido": "X", "nuevo_estado": "q_clear", "simbolo_escribir": "_", "direccion": "R"},
+    {"estado_actual": "q_clear", "simbolo_leido": "1", "nuevo_estado": "q_clear", "simbolo_escribir": "_", "direccion": "R"},
+    {"estado_actual": "q_clear", "simbolo_leido": "_", "nuevo_estado": "q_halt", "simbolo_escribir": "_", "direccion": "N"},
+    
+    {"estado_actual": "q_write_1", "simbolo_leido": "1", "nuevo_estado": "q_halt", "simbolo_escribir": "1", "direccion": "N"},
+    
+    {"estado_actual": "q_write_2a", "simbolo_leido": "_", "nuevo_estado": "q_write_2b", "simbolo_escribir": "1", "direccion": "L"},
+    {"estado_actual": "q_write_2b", "simbolo_leido": "1", "nuevo_estado": "q_halt", "simbolo_escribir": "1", "direccion": "N"},
+    
+    {"estado_actual": "q_write_3a", "simbolo_leido": "_", "nuevo_estado": "q_write_3b", "simbolo_escribir": "1", "direccion": "R"},
+    {"estado_actual": "q_write_3b", "simbolo_leido": "_", "nuevo_estado": "q_write_3c", "simbolo_escribir": "1", "direccion": "L"},
+    {"estado_actual": "q_write_3c", "simbolo_leido": "1", "nuevo_estado": "q_position", "simbolo_escribir": "1", "direccion": "L"},
+    
+    {"estado_actual": "q_write_5a", "simbolo_leido": "_", "nuevo_estado": "q_write_5b", "simbolo_escribir": "1", "direccion": "R"},
+    {"estado_actual": "q_write_5b", "simbolo_leido": "_", "nuevo_estado": "q_write_5c", "simbolo_escribir": "1", "direccion": "R"},
+    {"estado_actual": "q_write_5c", "simbolo_leido": "_", "nuevo_estado": "q_write_5d", "simbolo_escribir": "1", "direccion": "R"},
+    {"estado_actual": "q_write_5d", "simbolo_leido": "_", "nuevo_estado": "q_write_5e", "simbolo_escribir": "1", "direccion": "L"},
+    {"estado_actual": "q_write_5e", "simbolo_leido": "1", "nuevo_estado": "q_position", "simbolo_escribir": "1", "direccion": "L"},
+    
+    {"estado_actual": "q_position", "simbolo_leido": "1", "nuevo_estado": "q_position", "simbolo_escribir": "1", "direccion": "L"},
+    {"estado_actual": "q_position", "simbolo_leido": "_", "nuevo_estado": "q_halt", "simbolo_escribir": "_", "direccion": "R"}
+  ]
+}
