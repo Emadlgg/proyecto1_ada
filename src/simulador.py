@@ -20,9 +20,9 @@ def verificar_y_generar_diagramas():
     try:
         from src.generar_diagrama import generar_diagrama_completo
         generar_diagrama_completo()
-        print("✅ Diagramas generados exitosamente\n")
+        print("Diagramas generados exitosamente\n")
     except Exception as e:
-        print(f"⚠️  No se pudieron generar los diagramas: {e}")
+        print(f"Warning: No se pudieron generar los diagramas: {e}")
         print("Puedes generarlos manualmente ejecutando: python -m src.generar_diagrama\n")
 
 
@@ -105,7 +105,7 @@ def simular_fibonacci(n, mostrar_pasos=False):
         resultado = unario_a_numero(resultado_unario)
         
         print(f"\n{'='*60}")
-        print(f"✅ Simulación completada")
+        print(f"Simulación completada!!")
         print(f"{'='*60}")
         print(f"Resultado (unario): {resultado_unario}")
         print(f"Resultado (decimal): {resultado}")
@@ -121,7 +121,7 @@ def simular_fibonacci(n, mostrar_pasos=False):
         
         return resultado, tiempo_ejecucion, maquina.pasos
     else:
-        print("❌ La simulación no completó exitosamente")
+        print("La simulación no completó exitosamente")
         return None, tiempo_ejecucion, maquina.pasos
 
 
@@ -144,42 +144,49 @@ def menu_principal():
         opcion = input("\nSeleccione una opción: ").strip()
         
         if opcion == '1':
-            try:
-                n = int(input("Ingrese n (índice de Fibonacci): "))
-                if n < 0:
-                    print("❌ Por favor ingrese un número no negativo")
+            entrada = input("\nIngrese la entrada en notación unaria (ej: para F(4) ingrese 1111, para F(0) presione Enter): ").strip()
+            
+            # Validar que solo tenga 1s o esté vacía
+            if entrada != '' and not all(c == '1' for c in entrada):
+                print("Entrada inválida. Solo se permiten 1s en notación unaria (ejemplo: 111)")
+                continue
+            
+            # Convertir a n
+            n = len(entrada)
+            
+            if n > 5:
+                print(f"Esta implementación funciona para n ≤ 5 (máximo: 11111)")
+                confirmar = input("¿Continuar de todos modos? (s/n): ")
+                if confirmar.lower() != 's':
                     continue
-                if n > 5:
-                    print("⚠️  Esta implementación funciona para n ≤ 5")
-                    print("Para valores mayores, el resultado puede no ser correcto.")
-                    confirmar = input("¿Continuar de todos modos? (s/n): ")
-                    if confirmar.lower() != 's':
-                        continue
-                simular_fibonacci(n, mostrar_pasos=False)
-            except ValueError:
-                print("❌ Por favor ingrese un número válido")
+            
+            simular_fibonacci(n, mostrar_pasos=False)
         
         elif opcion == '2':
-            try:
-                n = int(input("Ingrese n (índice de Fibonacci): "))
-                if n < 0:
-                    print("❌ Por favor ingrese un número no negativo")
+            entrada = input("\nIngrese la entrada en notación unaria (ej: para F(4) ingrese 1111, para F(0) presione Enter): ").strip()
+            
+            # Validar que solo tenga 1s o esté vacía
+            if entrada != '' and not all(c == '1' for c in entrada):
+                print("Entrada inválida. Solo se permiten 1s en notación unaria (ejemplo: 111)")
+                continue
+            
+            # Convertir a n
+            n = len(entrada)
+            
+            if n > 5:
+                print(f"Esta implementación funciona para n ≤ 5 (máximo: 11111)")
+                confirmar = input("¿Continuar de todos modos? (s/n): ")
+                if confirmar.lower() != 's':
                     continue
-                if n > 5:
-                    print("⚠️  Esta implementación funciona para n ≤ 5")
-                    confirmar = input("¿Continuar de todos modos? (s/n): ")
-                    if confirmar.lower() != 's':
-                        continue
-                if n > 3:
-                    confirmar = input(f"⚠️  n={n} generará varios pasos. ¿Continuar? (s/n): ")
-                    if confirmar.lower() != 's':
-                        continue
-                simular_fibonacci(n, mostrar_pasos=True)
-            except ValueError:
-                print("❌ Por favor ingrese un número válido")
+            
+            if n > 3:
+                confirmar = input(f"Esta entrada generará varios pasos. ¿Continuar? (s/n): ")
+                if confirmar.lower() != 's':
+                    continue
+            
+            simular_fibonacci(n, mostrar_pasos=True)
         
         elif opcion == '3':
-            # Importar y ejecutar el análisis directamente
             print("\n" + "="*60)
             print("INICIANDO ANÁLISIS EMPÍRICO")
             print("="*60)
@@ -188,7 +195,7 @@ def menu_principal():
                 from analisis.analisis_empirico import analisis_empirico
                 analisis_empirico()
             except Exception as e:
-                print(f"❌ Error al ejecutar el análisis: {e}")
+                print(f"Error al ejecutar el análisis: {e}")
                 import traceback
                 traceback.print_exc()
         
@@ -197,7 +204,7 @@ def menu_principal():
             break
         
         else:
-            print("❌ Opción no válida")
+            print("Opción no válida")
 
 
 if __name__ == "__main__":

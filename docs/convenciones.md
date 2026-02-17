@@ -13,19 +13,34 @@
 
 - `1` : Representa una unidad
 - `_` : Celda vacía (símbolo blanco)
-- `#` : Separador de secciones en la cinta
 - `X` : Marcador temporal para operaciones
 
 ## 3. Convención de Entrada
 
 Para calcular el n-ésimo número de Fibonacci:
-- **Formato**: Cadena de `1`s en notación unaria
-- **Ejemplo**: Para calcular F(5), la entrada es `11111`
+- **Formato**: Cadena de `1`s en notación unaria ingresada directamente por el usuario
+- **Ejemplo**: Para calcular F(5), el usuario ingresa `11111`
 - **Posición inicial del cabezal**: Primera celda de la entrada
 
 ### Casos especiales:
 - Entrada vacía (`_`): Se calcula F(0) = 0
 - Entrada `1`: Se calcula F(1) = 1
+
+### Tabla de entradas válidas:
+
+| Entrada (unario) | n | F(n) |
+|-----------------|---|------|
+| (vacío)         | 0 | 0    |
+| `1`             | 1 | 1    |
+| `11`            | 2 | 1    |
+| `111`           | 3 | 2    |
+| `1111`          | 4 | 3    |
+| `11111`         | 5 | 5    |
+
+### Validaciones:
+- Solo se aceptan caracteres `1`
+- Máximo 5 caracteres (`11111`) para esta implementación
+- Cualquier otro carácter genera un error
 
 ## 4. Convención de Salida
 

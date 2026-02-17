@@ -108,7 +108,7 @@ def crear_diagrama_estados(config, archivo_salida='docs/diagrama_estados.png'):
     plt.axis('off')
     plt.tight_layout()
     plt.savefig(archivo_salida, dpi=300, bbox_inches='tight', facecolor='white')
-    print(f"✅ Diagrama guardado en: {archivo_salida}")
+    print(f"Diagrama guardado en: {archivo_salida}")
     plt.close()
 
 
@@ -167,7 +167,7 @@ def crear_tabla_transiciones(config, archivo_salida='docs/tabla_transiciones.png
              fontsize=16, fontweight='bold', pad=20)
     
     plt.savefig(archivo_salida, dpi=300, bbox_inches='tight', facecolor='white')
-    print(f"✅ Tabla de transiciones guardada en: {archivo_salida}")
+    print(f"Tabla de transiciones guardada en: {archivo_salida}")
     plt.close()
 
 
@@ -190,7 +190,7 @@ def generar_diagrama_completo():
     crear_tabla_transiciones(config)
     
     print("\n" + "="*60)
-    print("✅ DIAGRAMAS GENERADOS EXITOSAMENTE")
+    print("DIAGRAMAS GENERADOS EXITOSAMENTE")
     print("="*60)
     print("\nArchivos creados:")
     print("  📄 docs/diagrama_estados.png")
